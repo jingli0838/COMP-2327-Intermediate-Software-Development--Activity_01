@@ -68,11 +68,11 @@ class LibraryUser:
             raise Exception (f"{self.name} cannot borrow an item due to their {self.borrower_status.name} status")
         elif item.is_borrowed:
             raise Exception (f"{item.title} has already been borrowed")
-        elif item.genre.value == 3 & self.borrower_status.value == 3:
+        elif item.genre.value == 3 and self.borrower_status.value == 3:
             raise Exception(f"{self.name} is not allowed to borrow this book{item.title} due to the {self.borrower_status}")
         else:
             item.is_borrowed = True
-        return f"{self.name} is eligible to borrow the item."
+            return f"{self.name} is eligible to borrow the item."
         
     def return_item(self, item:LibraryItem) ->str:
         '''
