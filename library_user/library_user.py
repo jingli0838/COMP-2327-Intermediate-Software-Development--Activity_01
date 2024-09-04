@@ -75,6 +75,11 @@ class LibraryUser:
         return f"{self.name} is eligible to borrow the item."
         
     def return_item(self, item:LibraryItem) ->str:
+        '''
+        when DELINQUENT users returned the book, modify their borrower_status into ACtive and return a message to explain.
+        when users are not DELINQUENT and returned a book, modify is_borrowed attribute of the item in to false, indicating the book now is available
+        or if the bove are all not true, then retrun a message indicating the book is not borrowed.
+        '''
         if self.borrower_status == BorrowerStatus.DELINQUENT:
             self.borrower_status = BorrowerStatus.ACTIVE
             return f"Item successfully returned. {self.name} has returned the item, status now changed to: {self.borrower_status.name}."

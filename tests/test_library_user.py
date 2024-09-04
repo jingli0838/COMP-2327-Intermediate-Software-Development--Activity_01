@@ -14,6 +14,7 @@ from library_item.library_item import LibraryItem
 from library_user.library_user import LibraryUser
 
 class TestLibraryUser(unittest.TestCase):
+    # test init
     def test_init_valid(self):
         library_user = LibraryUser(456,"Lily","lily08@gmail.com",BorrowerStatus.ACTIVE)
 
