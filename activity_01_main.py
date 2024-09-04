@@ -21,20 +21,6 @@ def main():
 
     # 1. Code a statement which creates an instance of the LibraryItem class with valid inputs.
     # Use your own unique valid values for the inputs to the class.
-    try: 
-        fiction_book = LibraryItem(124,"Beauty", "Lucy",Genre.FICTION,True)  
-        student_01 = LibraryUser(457,"Ross","ross8@gmail.com",BorrowerStatus.ACTIVE)
-        student_01.borrow_item(fiction_book)
-    except Exception as e:
-        print(f"Error is :{e}")
-
-    try: 
-        cosmetic_book = LibraryItem(125,"How to be more beautiful", "Nancy",Genre.NON_FICTION,False)  
-        student_01 = LibraryUser(457,"Ross","ross8@gmail.com",BorrowerStatus.ACTIVE)
-        student_01.borrow_item(cosmetic_book)
-    except Exception as e:
-        print(f"Error is :{e}")
-
     try:
         library_item = LibraryItem(123,"Intermediate programming", "Mike",Genre.NON_FICTION,True)    
         library_user = LibraryUser(456,"Lily","lily08@gmail.com",BorrowerStatus.ACTIVE)
@@ -57,6 +43,39 @@ def main():
         library_item = LibraryItem(" ", "Mike",Genre.NON_FICTION)
     except Exception as e:
         print(f"Error is:{e}")
+    #Non-DELINQUENT user borrowing an item that is available.
+    try:
+        library_user = LibraryUser(456,"Lily","lily08@gmail.com",BorrowerStatus.ACTIVE)
+        cosmetic_book = LibraryItem(124,"how to be beautiful", "Ross",Genre.NON_FICTION, False)
+        result = library_user.borrow_item(cosmetic_book)
+        print(result)
+    except Exception as e:
+        print(e)
+    #DELINQUENT user borrowing an item that is available.
+    try:
+       delinquent_user = LibraryUser(458,"Moly","moly08@gmail.com",BorrowerStatus.DELINQUENT)
+       cosmetic_book = LibraryItem(124,"how to be beautiful", "Ross",Genre.NON_FICTION, False)
+       result = delinquent_user.borrow_item(cosmetic_book)
+       print(result)
+    except Exception as e:
+        print(e)
+    #Non-DELINQUENT user borrowing an item that is not available.
+    try:
+        library_user = LibraryUser(456,"Lily","lily08@gmail.com",BorrowerStatus.ACTIVE)
+        science_book = LibraryItem(124,"science", "Ross",Genre.NON_FICTION, True)
+        result = library_user.borrow_item(science_book)
+        print(result)
+    except Exception as e:
+        print(e)
+    # DELINQUENT user borrowing an item that is not available.
+    try:
+        delinquent_user = LibraryUser(458,"Moly","moly08@gmail.com",BorrowerStatus.DELINQUENT)
+        science_book = LibraryItem(124,"science", "Ross",Genre.NON_FICTION, True)
+        result = delinquent_user.borrow_item(science_book)
+        print(result)
+    except Exception as e:
+        print(e)
+
 
 if __name__ == "__main__":
     main()
