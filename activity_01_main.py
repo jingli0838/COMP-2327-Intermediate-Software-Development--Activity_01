@@ -2,8 +2,8 @@
 Description: A client program written to verify correctness of 
 the activity classes.
 Author: ACE Faculty
-Edited by: {Student Name}
-Date: {Date}
+Edited by: {Jing Li}
+Date: {9/1/2024}
 """
 #format 
 from borrower_status.borrower_status import BorrowerStatus
@@ -40,7 +40,7 @@ def main():
     # 3. Code a statement which creates an instance of the LibraryItem class with one or more invalid inputs.
     # Use your own unique valid values for the inputs to the class.
     try:
-        library_item = LibraryItem(" ", "Mike",Genre.NON_FICTION)
+        library_item = LibraryItem(" ", "Mike","Science",Genre.NON_FICTION,True)
     except Exception as e:
         print(f"Error is:{e}")
     #Non-DELINQUENT user borrowing an item that is available.
@@ -75,7 +75,5 @@ def main():
         print(result)
     except Exception as e:
         print(e)
-
-
 if __name__ == "__main__":
     main()

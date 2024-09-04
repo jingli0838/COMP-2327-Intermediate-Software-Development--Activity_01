@@ -1,7 +1,7 @@
 """
 Description: Unit tests for the Book class.
-Author: {Student Name}
-Date: {Date}
+Author: {Jing Li}
+Date: {9/1/2024}
 Usage: To execute all tests in the terminal execute 
 the following command:
     python -m unittest tests/test_book.py
